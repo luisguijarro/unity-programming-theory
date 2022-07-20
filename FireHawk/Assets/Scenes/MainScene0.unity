@@ -220,8 +220,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ba7243ea7050f3ab8f1eff5027ef511, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  falloff: {x: 0, y: 46.7, z: -33}
+  player: {fileID: 2013389615}
+  faloff: {x: 0, y: 46.7, z: -33}
 --- !u!1 &1754949991
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,3 +373,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9a52f469d077a8d48f3ed18e5682a53, type: 3}
+--- !u!1 &2013389615 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3377896098402585486, guid: f9a52f469d077a8d48f3ed18e5682a53, type: 3}
+  m_PrefabInstance: {fileID: 2013389614}
+  m_PrefabAsset: {fileID: 0}

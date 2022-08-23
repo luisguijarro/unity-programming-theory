@@ -9,6 +9,12 @@ public class ProjectileEmitter : SpaceObject
     [SerializeField] protected int projectilesPerShoot = 1;
     [SerializeField] protected Vector3 projectileOffSet;
 
+    protected override void OnStart()
+    {
+        //We avoid non-existent AudioSource references
+        //base.OnStart();
+    }
+    
     // ABSTRACTION
     public virtual void Shoot()
     {

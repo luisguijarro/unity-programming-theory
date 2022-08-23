@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject pauseUI;
     [SerializeField] private TextMeshProUGUI scoreValueText;
     [SerializeField] private TextMeshProUGUI gameOverScoreValueText;
-    [SerializeField] private int playerLives; // Must be change with Game dificult.
+    //[SerializeField] private int playerLives; // Must be change with Game dificult.
     [SerializeField] private int metersTraveled;
     [SerializeField] private int score;
 
@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
     {
         this.gameOverUI.SetActive(false);
         this.pauseUI.SetActive(false);
+        maxTimeToSpawn /= MainGameManager.Instance.Dificult;
         this.InitGame();
     }
 

@@ -10,7 +10,6 @@ public class SpaceShip : SpaceObject
     [SerializeField] protected int fieldLife = 2;
     private int damageOnField = 0;
     private ParticleSystem explosion;
-    private AudioSource audioSource;
 
     
     #region Protected Methods:
@@ -18,7 +17,6 @@ public class SpaceShip : SpaceObject
     // POLYMORPHISM
     protected override void OnStart()
     {
-        this.audioSource = this.GetComponent<AudioSource>();
         this.explosion = this.GetComponentInChildren<ParticleSystem>();
         this.goTarget = GameObject.Find("FireHawk");
         StartCoroutine(cShoot());

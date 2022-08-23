@@ -19,6 +19,16 @@ public class SpaceObject : MonoBehaviour
     protected float aimTime = 0f;
     protected float aimDiffAngle;
     protected AudioSource audioSource;
+
+
+    /// <summary>
+    /// Awake is called when the script instance is being loaded.
+    /// </summary>
+    void Awake()
+    {
+        this.OnAwake();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -70,11 +80,17 @@ public class SpaceObject : MonoBehaviour
 
     #region PROTECTED METHODS: // ENCAPSULATION
 
+    protected virtual void OnAwake()
+    {
+        this.audioSource = this.gameObject.GetComponent<AudioSource>();
+        this.audioSource.volume = MainGameManager.Instance.SoundVolume;
+        Debug.Log("Volume Setted!: " + MainGameManager.Instance.SoundVolume + " -> " + this.audioSource.volume);
+    }
+
     protected virtual void OnStart()
     {
         // Nothing By Default.
-        this.audioSource = this.gameObject.GetComponent<AudioSource>();
-        this.audioSource.volume = MainGameManager.Instance.SoundVolume;
+        this.audioSource.Play();
     }
 
     protected virtual void OnUpdate()

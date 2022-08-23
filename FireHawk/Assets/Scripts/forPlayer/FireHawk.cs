@@ -18,11 +18,14 @@ public class FireHawk : MonoBehaviour
     private ParticleSystem explosion;
 
     private GameManager gameManager;
+    private AudioSource audioSource;
     
     // Start is called before the first frame update
     void Start()
     {
         this.gameManager = GameManager.Instance;
+        this.audioSource = this.gameObject.GetComponent<AudioSource>();
+        this.audioSource.volume = MainGameManager.Instance.SoundVolume;
         this.explosion = this.GetComponentInChildren<ParticleSystem>();  
 
         this.SetHull(this.spaceshipHull/(int)MainGameManager.Instance.Dificult);

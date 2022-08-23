@@ -13,6 +13,7 @@ public class EnergyShield : MonoBehaviour
     void Start()
     {
         this.ValueChange += delegate{};
+        this.totalLife /= (int)MainGameManager.Instance.Dificult;
     }
 
     // Update is called once per frame
@@ -31,33 +32,6 @@ public class EnergyShield : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-/*
-    void OnCollisionEnter(Collision other)
-    {
-        if (other.gameObject.CompareTag("Projectile"))
-        {
-            projectile p0 = other.gameObject.GetComponent<projectile>();
-            if (!p0.isDestroyed && p0.IsEnergy)
-            {
-                if (p0.emmiterTag != this.gameObject.tag)
-                {
-                    if (this.damageOnShield >= this.totalLife)
-                    {
-                        //this.explosion.Play(); // Play Explosion
-                        Destroy(this.gameObject);
-                    }  
-                    else
-                    {
-                        this.SetDamage(p0.Damage);
-                        Debug.Log("Damage on EnergyShield: " + this.damageOnShield + "/" + this.totalLife);
-                    }
-                    //Debug.Log("Collision with projectile emmited by " + p0.emmiterTag + " on Energy Shield.");
-                } 
-                Debug.Log("Collision with projectile emmited by " + p0.emmiterTag + " on Energy Shield.");
-            }
-            //Debug.Log("Collision with projectile emmited by " + p0.emmiterTag);             
-        }
-    }*/
 
     public int TotalLife
     {

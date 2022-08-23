@@ -25,7 +25,7 @@ public class FireHawk : MonoBehaviour
         this.gameManager = GameManager.Instance;
         this.explosion = this.GetComponentInChildren<ParticleSystem>();  
 
-        this.SetHull(this.spaceshipHull);
+        this.SetHull(this.spaceshipHull/(int)MainGameManager.Instance.Dificult);
         this.SetDamageOnHull(0); // update LifeBar on UI.
 
         this.SetEnergyShield(Instantiate<GameObject>(goEnergyShield, this.transform));

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEditor;
 using TMPro;
 
@@ -10,10 +11,16 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject pilotNameScreen;
     [SerializeField] private TMP_InputField inputPilotName;
     [SerializeField] private GameObject optionsMenuScreen;
-    [SerializeField] private TextMeshProUGUI TextPilotName;
-    [SerializeField] private TextMeshProUGUI TextPilotScore;
-    [SerializeField] private TextMeshProUGUI TextPilotDistance;
-    [SerializeField] private TextMeshProUGUI TextPilotCredits;
+    [SerializeField] private TextMeshProUGUI textPilotName;
+    [SerializeField] private TextMeshProUGUI textPilotScore;
+    [SerializeField] private TextMeshProUGUI textPilotDistance;
+    [SerializeField] private TextMeshProUGUI textPilotCredits;
+    [SerializeField] private TextMeshProUGUI textDificultValue;
+    
+    [SerializeField] private Slider sliderMusicVolume;
+    [SerializeField] private Slider sliderSoundVolume;
+    [SerializeField] private Slider sliderDificult;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +34,15 @@ public class MainMenu : MonoBehaviour
             pilotNameScreen.SetActive(false);
         }
         this.optionsMenuScreen.SetActive(false);
+        this.UpdateOptionSliders();
         this.UpdatePilotOnUI();
+    }
+
+    private void UpdateOptionSliders()
+    {
+        sliderMusicVolume.value = MainGameManager.Instance.MusicVolume;
+        sliderSoundVolume.value = MainGameManager.Instance.SoundVolume;
+        sliderDificult.value = this.Dificult;
     }
 
     // Update is called once per frame
@@ -52,7 +67,6 @@ public class MainMenu : MonoBehaviour
         inputPilotName.ActivateInputField();
     }
 
-
     public void Access(string pilotname, string pilotpass)
     {
         MainGameManager.Instance.Access(pilotname, pilotpass);
@@ -64,10 +78,10 @@ public class MainMenu : MonoBehaviour
 
     private void UpdatePilotOnUI()
     {
-        this.TextPilotName.text = MainGameManager.Instance.PilotName;
-        this.TextPilotScore.text = MainGameManager.Instance.PilotScore.ToString();
-        this.TextPilotDistance.text = "-" + MainGameManager.Instance.PilotMaxDistance.ToString();
-        this.TextPilotCredits.text = MainGameManager.Instance.PilotCredits.ToString();
+        this.textPilotName.text = MainGameManager.Instance.PilotName;
+        this.textPilotScore.text = MainGameManager.Instance.PilotScore.ToString();
+        this.textPilotDistance.text = "-" + MainGameManager.Instance.PilotMaxDistance.ToString();
+        this.textPilotCredits.text = MainGameManager.Instance.PilotCredits.ToString();
     }
 
 
@@ -76,14 +90,7 @@ public class MainMenu : MonoBehaviour
         optionsMenuScreen.SetActive(true);
         mainMenuScreen.SetActive(false);
     }
-/*
-    public void SetPilotName()
-    {
-        MainGameManager.Instance.SetPilotName(inputPilotName.text);
-        mainMenuScreen.SetActive(true);
-        pilotNameScreen.SetActive(false);
-    }
-*/
+
     public void LaunchGame()
     {
         MainGameManager.Instance.LaunchGame();
@@ -96,5 +103,47 @@ public class MainMenu : MonoBehaviour
         #else
             Application.Quit();
         #endif
+    }
+
+    public float Dificult
+    {
+        set 
+        { 
+            MainGameManager.Instance.Dificult = value;
+            switch(value)
+            {
+                case 2:
+                    textDificultValue.text = "MEDIUM";
+                    textDificultValue.color = new Color(1f, 0.5f, 0f); // Orange
+                    break;
+                case 3:
+                    textDificultValue.text = "HARD";
+                    textDificultValue.color = Color.red;
+                    break;
+                default:
+                    textDificultValue.text = "EASY";
+                    textDificultValue.color = Color.green;
+                    break;
+            }
+        }
+        get 
+        { 
+            switch(MainGameManager.Instance.Dificult) // For first update
+            {
+                case 2:
+                    textDificultValue.text = "MEDIUM";
+                    textDificultValue.color = new Color(1f, 0.5f, 0f); // Orange
+                    break;
+                case 3:
+                    textDificultValue.text = "HARD";
+                    textDificultValue.color = Color.red;
+                    break;
+                default:
+                    textDificultValue.text = "EASY";
+                    textDificultValue.color = Color.green;
+                    break;
+            }
+            return MainGameManager.Instance.Dificult; 
+        }
     }
 }

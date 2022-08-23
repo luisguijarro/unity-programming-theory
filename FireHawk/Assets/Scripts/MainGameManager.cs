@@ -10,11 +10,15 @@ public class MainGameManager : MonoBehaviour
 {
     public static MainGameManager Instance;
     private string activePilot;
-    //[SerializeField] private GameObject mainScreen;
-    //[SerializeField] private GameObject pilotNameScreen;
     internal bool appStarted = false;
-    // Start is called before the first frame update
+
     private Dictionary<string, PilotData> pilotsList; // Key PilotName
+
+    private float musicVolume;
+    private float soundVolume;
+    private int dificult;
+    
+    // Start is called before the first frame update
     void Start()
     {
 
@@ -202,6 +206,24 @@ public class MainGameManager : MonoBehaviour
             }
             return 0;
         }
+    }
+
+    public float MusicVolume 
+    {
+        set { this.musicVolume = value; }
+        get { return this.musicVolume; }
+    }
+
+    public float SoundVolume 
+    {
+        set { this.soundVolume = value; }
+        get { return this.soundVolume; }
+    }
+
+    public float Dificult // we define as float to use with slider
+    {
+        set { this.dificult = (int)value; }
+        get { return (int)this.dificult; }
     }
 
     #endregion

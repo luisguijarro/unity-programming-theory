@@ -16,7 +16,7 @@ public class MainGameManager : MonoBehaviour
 
     private float musicVolume;
     private float soundVolume;
-    private int dificult;
+    //private int dificult = 1; //Easy by default.
     
     // Start is called before the first frame update
     void Start()
@@ -129,7 +129,7 @@ public class MainGameManager : MonoBehaviour
         PilotData pd = new PilotData();
         pd.BestScore = 0;
         pd.Credits = 0;
-        pd.dificult = 1;
+        pd.dificult = 1; // Easy by Default.
         pd.musicVolume = 1f;
         pd.SoundVolume = 1f;
         pd.Name = pilotname;
@@ -222,8 +222,8 @@ public class MainGameManager : MonoBehaviour
 
     public float Dificult // we define as float to use with slider
     {
-        set { this.dificult = (int)value; }
-        get { return (int)this.dificult; }
+        set { this.pilotsList[this.activePilot].dificult = (int)value; }
+        get { return (int)this.pilotsList[this.activePilot].dificult; }
     }
 
     #endregion

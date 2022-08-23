@@ -18,6 +18,7 @@ public class SpaceObject : MonoBehaviour
     protected bool destroyed = false;
     protected float aimTime = 0f;
     protected float aimDiffAngle;
+    protected AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
@@ -72,6 +73,8 @@ public class SpaceObject : MonoBehaviour
     protected virtual void OnStart()
     {
         // Nothing By Default.
+        this.audioSource = this.gameObject.GetComponent<AudioSource>();
+        this.audioSource.volume = MainGameManager.Instance.SoundVolume;
     }
 
     protected virtual void OnUpdate()

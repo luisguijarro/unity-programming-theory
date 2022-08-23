@@ -17,6 +17,7 @@ public class SpaceShip : SpaceObject
     // POLYMORPHISM
     protected override void OnStart()
     {
+        base.OnStart();
         this.explosion = this.GetComponentInChildren<ParticleSystem>();
         this.goTarget = GameObject.Find("FireHawk");
         StartCoroutine(cShoot());

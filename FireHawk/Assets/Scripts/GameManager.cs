@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private float maxTimeToSpawn;
     [SerializeField] private float minTimeToSpawn; // Must be change with Game dificult.
+    [SerializeField] private AudioSource mainAudioSource;
     
     void Awake()
     {
@@ -34,6 +35,7 @@ public class GameManager : MonoBehaviour
         this.gameOverUI.SetActive(false);
         this.pauseUI.SetActive(false);
         maxTimeToSpawn /= MainGameManager.Instance.Dificult;
+        mainAudioSource.volume = MainGameManager.Instance.MusicVolume;
         this.InitGame();
     }
 

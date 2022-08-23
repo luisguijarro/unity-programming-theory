@@ -14,8 +14,8 @@ public class MainGameManager : MonoBehaviour
 
     private Dictionary<string, PilotData> pilotsList; // Key PilotName
 
-    private float musicVolume;
-    private float soundVolume;
+    //private float musicVolume;
+    //private float soundVolume;
     //private int dificult = 1; //Easy by default.
     
     // Start is called before the first frame update
@@ -210,20 +210,20 @@ public class MainGameManager : MonoBehaviour
 
     public float MusicVolume 
     {
-        set { this.musicVolume = value; }
-        get { return this.musicVolume; }
+        set { this.pilotsList[activePilot].musicVolume = value; }
+        get { return this.pilotsList[activePilot].musicVolume; }
     }
 
     public float SoundVolume 
     {
-        set { this.soundVolume = value; }
-        get { return this.soundVolume; }
+        set { this.pilotsList[activePilot].SoundVolume = value; }
+        get { return this.pilotsList[activePilot].SoundVolume; }
     }
 
     public float Dificult // we define as float to use with slider
     {
-        set { this.pilotsList[this.activePilot].dificult = (int)value; }
-        get { return (int)this.pilotsList[this.activePilot].dificult; }
+        set { this.pilotsList[activePilot].dificult = (int)value; }
+        get { return (int)this.pilotsList[activePilot].dificult; }
     }
 
     #endregion

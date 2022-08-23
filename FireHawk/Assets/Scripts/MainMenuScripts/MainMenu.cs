@@ -31,11 +31,11 @@ public class MainMenu : MonoBehaviour
         }
         else
         {
-            pilotNameScreen.SetActive(false);
+            // pilotNameScreen.SetActive(false);
+            this.ShowMainMenu();
         }
         this.optionsMenuScreen.SetActive(false);
-        this.UpdateOptionSliders();
-        this.UpdatePilotOnUI();
+        
     }
 
     private void UpdateOptionSliders()
@@ -89,6 +89,7 @@ public class MainMenu : MonoBehaviour
     {
         optionsMenuScreen.SetActive(true);
         mainMenuScreen.SetActive(false);
+        this.UpdateOptionSliders();
     }
 
     public void LaunchGame()

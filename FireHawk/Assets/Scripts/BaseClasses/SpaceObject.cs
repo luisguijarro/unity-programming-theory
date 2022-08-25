@@ -80,6 +80,7 @@ public class SpaceObject : MonoBehaviour
 
     #region PROTECTED METHODS: // ENCAPSULATION
 
+    // ABSTRACTION
     protected virtual void OnAwake()
     {
         this.audioSource = this.gameObject.GetComponent<AudioSource>();
@@ -87,12 +88,14 @@ public class SpaceObject : MonoBehaviour
         Debug.Log("Volume Setted!: " + MainGameManager.Instance.SoundVolume + " -> " + this.audioSource.volume);
     }
 
+    // ABSTRACTION
     protected virtual void OnStart()
     {
         // Nothing By Default.
         this.audioSource.Play();
     }
 
+    // ABSTRACTION
     protected virtual void OnUpdate()
     {
         // Nothing By Default.
@@ -154,6 +157,7 @@ public class SpaceObject : MonoBehaviour
         }
     }
 
+    // ABSTRACTION
     protected virtual void DestroyThis(bool withPoints)
     {
         this.GetComponent<MeshRenderer>().enabled = false;

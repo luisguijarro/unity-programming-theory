@@ -51,6 +51,7 @@ public class MainMenu : MonoBehaviour
         
     }
 
+    // ABSTRACTION
     public void ShowMainMenu()
     {
         mainMenuScreen.SetActive(true);
@@ -59,6 +60,7 @@ public class MainMenu : MonoBehaviour
         this.UpdatePilotOnUI();
     }
 
+    // ABSTRACTION
     public void ShowPilotNameInput()
     {
         pilotNameScreen.SetActive(true);
@@ -67,6 +69,7 @@ public class MainMenu : MonoBehaviour
         inputPilotName.ActivateInputField();
     }
 
+    // ABSTRACTION
     public void Access(string pilotname, string pilotpass)
     {
         MainGameManager.Instance.Access(pilotname, pilotpass);
@@ -76,6 +79,7 @@ public class MainMenu : MonoBehaviour
         // LoadPilot...
     }
 
+    // ABSTRACTION
     private void UpdatePilotOnUI()
     {
         this.textPilotName.text = MainGameManager.Instance.PilotName;
@@ -84,7 +88,7 @@ public class MainMenu : MonoBehaviour
         this.textPilotCredits.text = MainGameManager.Instance.PilotCredits.ToString();
     }
 
-
+    // ABSTRACTION
     public void ShowOptionsMenu()
     {
         optionsMenuScreen.SetActive(true);
@@ -92,11 +96,13 @@ public class MainMenu : MonoBehaviour
         this.UpdateOptionSliders();
     }
 
+    // ABSTRACTION
     public void LaunchGame()
     {
         MainGameManager.Instance.LaunchGame();
     }
 
+    // ABSTRACTION
     public void Exit()
     {
         #if UNITY_EDITOR
@@ -106,6 +112,7 @@ public class MainMenu : MonoBehaviour
         #endif
     }
 
+    // ENCAPSULATION
     public float Dificult
     {
         set 

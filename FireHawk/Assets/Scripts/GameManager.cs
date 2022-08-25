@@ -47,6 +47,7 @@ public class GameManager : MonoBehaviour
         }
     }
     
+    // ABSTRACTION
     private void InitGame()
     {
         this.score = 0;
@@ -54,22 +55,26 @@ public class GameManager : MonoBehaviour
         StartCoroutine(SpawnEnemies());
     }
 
+    // ABSTRACTION
     public void SetPause(bool mustpause)
     {
         pauseUI.SetActive(mustpause);
         this.onPause = mustpause;
     }
 
+    // ABSTRACTION
     public void RetryGame() // for UI
     {
         SceneManager.LoadScene(1, LoadSceneMode.Single);
     }
 
+    // ABSTRACTION
     public void ExitToMainMenu()
     {
         SceneManager.LoadScene(0, LoadSceneMode.Single);
     }
 
+    // ABSTRACTION
     public void GameOver()
     {
         this.onGame = false;
@@ -79,6 +84,7 @@ public class GameManager : MonoBehaviour
         MainGameManager.Instance.GameOver(score, 0, 0);
     }
 
+    // ABSTRACTION
     IEnumerator SpawnEnemies()
     {
         while(this.onGame)
@@ -93,28 +99,33 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // ABSTRACTION
     public void SpawnEnemy(int enemyType)
     {
         Vector3 position = new Vector3(Random.Range(-107f, 107f), 0, 940);   
         this.SpawnEnemy(enemyType, position);
     }
 
+    // ABSTRACTION
     public void SpawnEnemy(int enemyType, Vector3 position)
     {
         //Vector3 rotation = this.player.transform.position - position;
         this.SpawnEnemy(enemyType, position, this.enemyPrefabs[enemyType].transform.rotation);
     }
 
+    // ABSTRACTION
     public void SpawnEnemy(int enemyType, Vector3 position, Vector3 rotation)
     {
         this.SpawnEnemy(enemyType, position, Quaternion.Euler(rotation));
     }
 
+    // ABSTRACTION
     public void SpawnEnemy(int enemyType, Vector3 position, Quaternion rotation)
     {
         Instantiate(this.enemyPrefabs[enemyType], position, rotation);
     }
 
+    // ABSTRACTION
     public GameObject GetEnemyPrefab(int index)
     {
         if (index<this.enemyPrefabs.Length)
@@ -124,27 +135,32 @@ public class GameManager : MonoBehaviour
         return null;
     }
 
+    // ABSTRACTION
     public void IncrementScore(int score)
     {
         this.score++;
         this.scoreValueText.text = this.score.ToString("0000");
     }
 
+    // ENCAPSULATION
     public int Score
     {
         get { return this.score; }
     }
 
+    // ENCAPSULATION
     public GameObject Player
     {
         get { return this.player; }
     }
 
+    // ENCAPSULATION
     public bool OnGame
     {
         get { return this.onGame; }
     }
 
+    // ENCAPSULATION
     public bool OnPause
     {
         get { return this.onPause; }

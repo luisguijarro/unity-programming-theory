@@ -23,6 +23,7 @@ public class EnterPilotName : MonoBehaviour
         
     }
 
+    // ABSTRACTION
     public void PilotAccessControl()
     {
         if ((enterNameInput.text.Length > 0) && enterPassInput.text.Length > 0)
@@ -48,6 +49,7 @@ public class EnterPilotName : MonoBehaviour
         }
     }
 
+    // ABSTRACTION
     public void ReturnToAccessScreen()
     {
         this.errorPanel.SetActive(false);

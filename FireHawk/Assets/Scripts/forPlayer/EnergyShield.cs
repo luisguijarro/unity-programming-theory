@@ -22,6 +22,7 @@ public class EnergyShield : MonoBehaviour
         
     }
 
+    // ABSTRACTION
     public void SetDamage(int damage)
     {
         this.damageOnShield += damage;
@@ -33,11 +34,13 @@ public class EnergyShield : MonoBehaviour
         }
     }
 
+    // ENCAPSULATION
     public int TotalLife
     {
         get { return this.totalLife; }
     }
 
+    // ENCAPSULATION
     public int Damage
     {
         get { return this.damageOnShield; }

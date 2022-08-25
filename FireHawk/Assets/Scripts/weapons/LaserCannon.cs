@@ -5,6 +5,7 @@ using UnityEngine;
 // INHERITANCE
 public class LaserCannon : weapon
 {
+    // POLYMORPHISM
     public LaserCannon() : base()
     {
         this.cadence = 1f; // One shoot for second.

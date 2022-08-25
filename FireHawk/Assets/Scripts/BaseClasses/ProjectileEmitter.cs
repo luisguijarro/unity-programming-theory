@@ -9,12 +9,14 @@ public class ProjectileEmitter : SpaceObject
     [SerializeField] protected int projectilesPerShoot = 1;
     [SerializeField] protected Vector3 projectileOffSet;
 
+    // POLYMORPHISM
     protected override void OnAwake()
     {
         //We avoid non-existent AudioSource references
         //base.OnAwake();
     }
 
+    // POLYMORPHISM
     protected override void OnStart()
     {
         //We avoid non-existent AudioSource Play

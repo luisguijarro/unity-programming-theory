@@ -87,17 +87,20 @@ public class FireHawk : MonoBehaviour
 
     #region Damage
 
+    // ABSTRACTION
     private void SetDamageOnEnergyShield()
     {
         //this.damageOnShield += damage;
         this.shieldProgressBar.Value = this.energyShield.TotalLife-this.energyShield.Damage;
     }
 
+    // ABSTRACTION
     private void DamOnShield( object sender, IntValueChangeEventArgs e)
     {
         SetDamageOnEnergyShield();
     }
 
+    // ABSTRACTION
     public void SetDamageOnHull(int damage)
     {
         this.damageOnHull += damage;
@@ -114,6 +117,7 @@ public class FireHawk : MonoBehaviour
 
     #region Set Equipment
 
+    // ABSTRACTION
     public void SetHull(int totalLife)
     {
         /* In the future will exit a diferents Hull Qualities, but 
@@ -122,6 +126,7 @@ public class FireHawk : MonoBehaviour
         this.hullProgressBar.SetMaxValue(this.spaceshipHull);
     }
 
+    // ABSTRACTION
     private void SetEnergyShield(EnergyShield energy_shield)
     {
         this.energyShield = energy_shield;
@@ -130,6 +135,7 @@ public class FireHawk : MonoBehaviour
         this.energyShield.ValueChange += DamOnShield;
     }
 
+    // ABSTRACTION
     public void SetEnergyShield(GameObject go_energy_shield)
     {
         this.goEnergyShield = go_energy_shield;

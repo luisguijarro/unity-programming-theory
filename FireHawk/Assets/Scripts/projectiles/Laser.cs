@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Laser : projectile
 {
+
+    // POLYMORPHISM
     protected override void OnStart()
     {
         base.OnStart();

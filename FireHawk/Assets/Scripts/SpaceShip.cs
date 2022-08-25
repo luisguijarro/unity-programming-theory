@@ -23,6 +23,7 @@ public class SpaceShip : SpaceObject
         StartCoroutine(cShoot());
     }
 
+    // ABSTRACTION
     private IEnumerator cShoot()
     {
         while(!this.destroyed)
@@ -43,7 +44,7 @@ public class SpaceShip : SpaceObject
         Debug.Log("Eshoot");
     }
 
-    // ABSTRACTION
+    // POLYMORPHISM
     protected override void DestroyThis(bool withPoints)
     {
         //this.GetComponent<MeshRenderer>().enabled = false;

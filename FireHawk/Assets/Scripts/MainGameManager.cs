@@ -47,11 +47,13 @@ public class MainGameManager : MonoBehaviour
         
     }
 
+    // ABSTRACTION
     public void LaunchGame()
     {
         SceneManager.LoadScene(1, LoadSceneMode.Single); // Load MainScene.
     }
 
+    // ABSTRACTION
     public void SaveData()
     {
         PilotData[] pilotsData = new PilotData[this.pilotsList.Count];
@@ -70,6 +72,7 @@ public class MainGameManager : MonoBehaviour
         Debug.Log("Data Saved.");
     }
 
+    // ABSTRACTION
     public void LoadData()
     {
         this.pilotsList = new Dictionary<string, PilotData>();
@@ -90,11 +93,13 @@ public class MainGameManager : MonoBehaviour
         }
     }
 
+    // ABSTRACTION
     public bool ExistPilot(string pilot)
     {
         return this.pilotsList.ContainsKey(pilot);
     }
 
+    // ABSTRACTION
     public bool CheckPassword(string user, string pass)
     {
         //return true; // MORE CODE....
@@ -110,6 +115,7 @@ public class MainGameManager : MonoBehaviour
         return false;
     }
 
+    // ABSTRACTION
     public void Access(string pilotname, string pilotpass)
     {
         // LoadPilot...
@@ -119,6 +125,7 @@ public class MainGameManager : MonoBehaviour
         }
     }
 
+    // ABSTRACTION
     public void CreatePilot(string pilotname, string pilotpass)
     {
         //Hash128 userHash = new Hash128();
@@ -143,6 +150,7 @@ public class MainGameManager : MonoBehaviour
         SaveData();
     }
 
+    // ABSTRACTION
     public void GameOver(int score, int distance, int credits)
     {
         // Update Values
@@ -160,6 +168,7 @@ public class MainGameManager : MonoBehaviour
 
     #region PROPERTIES:
 
+    // ENCAPSULATION
     public string PilotName
     {
         get 
@@ -172,6 +181,7 @@ public class MainGameManager : MonoBehaviour
         }
     }
 
+    // ENCAPSULATION
     public int PilotCredits
     {
         get 
@@ -184,6 +194,7 @@ public class MainGameManager : MonoBehaviour
         }
     }
 
+    // ENCAPSULATION
     public int PilotScore
     {
         get 
@@ -196,6 +207,7 @@ public class MainGameManager : MonoBehaviour
         }
     }
 
+    // ENCAPSULATION
     public int PilotMaxDistance
     {
         get 
@@ -208,18 +220,21 @@ public class MainGameManager : MonoBehaviour
         }
     }
 
+    // ENCAPSULATION
     public float MusicVolume 
     {
         set { this.pilotsList[activePilot].musicVolume = value; }
         get { return this.pilotsList[activePilot].musicVolume; }
     }
 
+    // ENCAPSULATION
     public float SoundVolume 
     {
         set { this.pilotsList[activePilot].SoundVolume = value; }
         get { return this.pilotsList[activePilot].SoundVolume; }
     }
 
+    // ENCAPSULATION
     public float Dificult // we define as float to use with slider
     {
         set { this.pilotsList[activePilot].dificult = (int)value; }

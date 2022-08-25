@@ -27,6 +27,7 @@ public class ProgressBar : MonoBehaviour
         
     }
 
+    // ABSTRACTION
     public void SetMaxValue(int maxvalue)
     {
         if (maxvalue > this.minValue)
@@ -35,6 +36,7 @@ public class ProgressBar : MonoBehaviour
         }
     }
 
+    // ABSTRACTION
     public void SetMinValue(int minvalue)
     {
         if (minvalue < this.maxValue)
@@ -43,6 +45,7 @@ public class ProgressBar : MonoBehaviour
         }
     }
 
+    // ABSTRACTION
     private void UpdateView()
     {
         barFilling.GetComponent<Image>().color = fillColor;
@@ -54,6 +57,7 @@ public class ProgressBar : MonoBehaviour
         barFilling.GetComponent<RectTransform>().offsetMax = new Vector2(-2.5f, -(2.5f+actualHeight));
     }
 
+    // ENCAPSULATION
     public int Value
     {
         get { return this.i_value; }

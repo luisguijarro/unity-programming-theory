@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// INHERITANCE
 public abstract class projectile : SpaceObject
 {
     [SerializeField] protected int damage = 1; // By Default
@@ -38,6 +39,7 @@ public abstract class projectile : SpaceObject
         } 
     }
 
+    // ENCAPSULATION
     public bool IsEnergy
     {
         get { return this.isEnergy; }
